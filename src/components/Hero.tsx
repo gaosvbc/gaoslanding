@@ -1,15 +1,16 @@
 import { TextReveal } from "./TextReveal";
+import { Link } from "react-router-dom";
 
 export function Hero() {
   return (
     <section className="relative h-screen w-full flex flex-col justify-between pt-8 pb-16 px-6 md:px-12 lg:px-24">
       {/* Subtle Menu Placeholder */}
       <header className="flex justify-between items-center w-full z-10 mix-blend-difference">
-        <div className="font-sans text-sm tracking-widest uppercase">Gaos</div>
+        <Link to="/" className="font-sans text-sm tracking-widest uppercase">Gaos</Link>
         <nav className="flex gap-8 font-sans text-xs tracking-widest uppercase hidden md:flex">
           <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">Studio</a>
           <a href="#reformas" className="hover:text-neutral-400 transition-colors">Reformas</a>
-          <a href="#contacto" className="hover:text-neutral-400 transition-colors">Contacto</a>
+          <Link to="/contacto" className="hover:text-neutral-400 transition-colors">Contacto</Link>
         </nav>
         <button className="md:hidden font-sans text-xs tracking-widest uppercase">Menu</button>
       </header>
