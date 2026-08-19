@@ -166,5 +166,4 @@ export function Contact() {
     </div>
   );
 }
-  );
-}
+  
