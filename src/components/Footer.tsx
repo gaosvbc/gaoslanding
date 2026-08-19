@@ -18,9 +18,9 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-neutral-800 pt-8">
           <div className="font-serif text-2xl tracking-tighter">GAOS</div>
           <div className="flex gap-8 font-sans text-xs tracking-widest uppercase text-neutral-500">
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <a href="mailto:hola@gaos.es" className="hover:text-white transition-colors">hola@gaos.es</a>
+            <a href="https://www.instagram.com/gaosreformas/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@gaosreformas" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">TikTok</a>
+            <a href="mailto:hola@gaos.es" className="hover:text-white transition-colors">HOLA@GAOS.ES</a>
           </div>
           <div className="font-sans text-xs tracking-widest text-neutral-600 uppercase">
             © {new Date().getFullYear()} Gaos. Todos los derechos reservados.

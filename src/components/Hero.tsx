@@ -1,22 +1,55 @@
+import { useState, useEffect } from "react";
 import { TextReveal } from "./TextReveal";
 import { Link } from "react-router-dom";
 
 export function Hero() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Evitar scroll de la página cuando el menú está abierto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
     <section className="relative h-screen w-full flex flex-col justify-between pt-8 pb-16 px-6 md:px-12 lg:px-24">
-      {/* Subtle Menu Placeholder */}
-      <header className="flex justify-between items-center w-full z-10 mix-blend-difference">
-        <Link to="/" className="font-sans text-sm tracking-widest uppercase">Gaos</Link>
-        <nav className="flex gap-8 font-sans text-xs tracking-widest uppercase hidden md:flex">
+      {/* Header */}
+      <header className={`flex justify-between items-center w-full z-50 relative transition-all duration-300 ${isMenuOpen ? "" : "mix-blend-difference"}`}>
+        <Link to="/" onClick={() => setIsMenuOpen(false)} className="font-sans text-sm tracking-widest uppercase text-white">Gaos</Link>
+        <nav className="flex gap-8 font-sans text-xs tracking-widest uppercase hidden md:flex text-white">
           <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">Studio</a>
           <a href="#reformas" className="hover:text-neutral-400 transition-colors">Reformas</a>
           <Link to="/contacto" className="hover:text-neutral-400 transition-colors">Contacto</Link>
         </nav>
-        <button className="md:hidden font-sans text-xs tracking-widest uppercase">Menu</button>
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden font-sans text-xs tracking-widest uppercase text-white"
+        >
+          {isMenuOpen ? "Cerrar" : "Menu"}
+        </button>
       </header>
 
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`absolute inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <nav className="flex flex-col items-center gap-12 font-sans text-xl tracking-widest uppercase text-white">
+          <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Studio</a>
+          <a href="#reformas" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Reformas</a>
+          <Link to="/contacto" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Contacto</Link>
+        </nav>
+      </div>
+
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center flex-1 z-10 mix-blend-difference">
+      <div className={`flex flex-col items-center justify-center flex-1 z-10 transition-opacity duration-300 mix-blend-difference ${isMenuOpen ? "opacity-0" : "opacity-100"}`}>
         <TextReveal as="h1" className="font-serif text-[18vw] md:text-[15vw] leading-[0.8] tracking-tighter text-center uppercase">
           Gaos
         </TextReveal>

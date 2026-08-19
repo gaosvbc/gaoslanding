@@ -2,7 +2,7 @@ import React from 'react';
 
 export function WhatsAppFloating() {
   return (
-     <a
+    <a
       href="https://wa.me/message/AWEBFFVJDRZNJ1"
       target="_blank"
       rel="noopener noreferrer"
