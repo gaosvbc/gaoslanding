@@ -3,7 +3,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextReveal } from "./TextReveal";
 import { Link } from "react-router-dom";
-import { useCookieConsent } from "./CookieBanner";
 
 type Status = "idle" | "submitting" | "succeeded" | "error";
 
@@ -13,7 +12,6 @@ export function Contact() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [privacyError, setPrivacyError] = useState(false);
-  const { consent, updateConsent } = useCookieConsent();
 
   useGSAP(() => {
     gsap.fromTo(
@@ -199,34 +197,21 @@ export function Contact() {
           </form>
         )}
 
-        <div className="mt-24 w-full h-[400px] md:h-[500px]">
-          {consent === 'accepted' ? (
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2891157929424!2d-3.7093220235313177!3d40.42903745516086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422864ca02c817%3A0xc6fb6faeebda1866!2sGta.%20de%20Ruiz%20Gim%C3%A9nez%2C%205%2C%20Chamber%C3%AD%2C%2028015%20Madrid!5e0!3m2!1sen!2ses!4v1700000000000!5m2!1sen!2ses"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
-            ></iframe>
-          ) : (
-            <div className="w-full h-full bg-neutral-900 border border-neutral-800 flex flex-col items-center justify-center p-6 text-center space-y-6">
-              <p className="font-sans text-sm md:text-base text-neutral-400">
-                Acepta las cookies para ver el mapa interactivo.
-              </p>
-              <button
-                onClick={() => {
-                  updateConsent(null);
-                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                }}
-                className="border border-white text-white hover:bg-white hover:text-black transition-colors px-6 py-3 font-sans text-xs uppercase tracking-widest"
-              >
-                Gestionar cookies
-              </button>
-            </div>
-          )}
+        <div className="mt-24 w-full flex flex-col items-center py-20 border-t border-b border-neutral-800">
+          <span className="font-sans text-xs tracking-[0.3em] text-neutral-500 uppercase mb-6">
+            Dónde estamos
+          </span>
+          <p className="font-serif text-2xl md:text-3xl text-white leading-loose text-center mb-12">
+            Glorieta de Ruiz Giménez 5<br />Madrid
+          </p>
+          <a
+            href="https://maps.google.com/?q=Glorieta+de+Ruiz+Gimenez+5,+Madrid"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-white/30 text-white text-xs tracking-[0.3em] uppercase px-8 py-3 hover:border-white/80 transition-colors"
+          >
+            CÓMO LLEGAR
+          </a>
         </div>
       </div>
     </div>
