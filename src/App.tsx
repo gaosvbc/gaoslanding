@@ -9,7 +9,6 @@ import { Contact } from "./components/Contact";
 import AvisoLegal from "./components/AvisoLegal";
 import PoliticaPrivacidad from "./components/PoliticaPrivacidad";
 import PoliticaCookies from "./components/PoliticaCookies";
-import CookieBanner from "./components/CookieBanner";
 import { WhatsAppFloating } from "./components/WhatsAppFloating";
 import { ReactLenis } from 'lenis/react';
 
@@ -24,7 +23,6 @@ export default function App() {
         <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
       </Routes>
       <WhatsAppFloating />
-      <CookieBanner />
     </ReactLenis>
   );
 }

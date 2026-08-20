@@ -60,34 +60,6 @@ export default function PoliticaCookies() {
             <p className="mb-6">
               Gaos VBC utiliza Vercel Analytics para obtener estadísticas anónimas de uso del sitio web. Este servicio es <strong>cookieless</strong>: no instala cookies en tu dispositivo y no permite identificar usuarios individuales. Los datos son tratados de forma completamente anónima. Proveedor: Vercel Inc. (EE.UU.), acogido al Marco de Privacidad de Datos UE-EE.UU.
             </p>
-
-            <h3 className="font-sans text-base md:text-lg text-white mt-8 mb-2">2.3 Cookies de terceros (Google Maps)</h3>
-            <p className="mb-4">
-              El sitio incluye un mapa interactivo de Google Maps para facilitar la localización de nuestras oficinas. Google Maps puede instalar cookies propias para mejorar el servicio y con fines analíticos y publicitarios. Estas cookies solo se activan si aceptas su uso.
-            </p>
-            <div className="overflow-x-auto mb-4">
-              <table className="w-full text-left text-sm border-collapse">
-                <thead>
-                  <tr className="border-b border-neutral-800">
-                    <th className="py-2 pr-4 font-normal text-neutral-500 uppercase tracking-widest text-xs">Cookie</th>
-                    <th className="py-2 pr-4 font-normal text-neutral-500 uppercase tracking-widest text-xs">Titular</th>
-                    <th className="py-2 pr-4 font-normal text-neutral-500 uppercase tracking-widest text-xs">Finalidad</th>
-                    <th className="py-2 font-normal text-neutral-500 uppercase tracking-widest text-xs">Duración</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-neutral-800">
-                    <td className="py-3 pr-4">Varias (_ga, NID, etc.)</td>
-                    <td className="py-3 pr-4">Google LLC</td>
-                    <td className="py-3 pr-4">Analítica, preferencias y publicidad</td>
-                    <td className="py-3">Variable</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p>
-              Más información: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neutral-400 underline underline-offset-4 decoration-neutral-700">Política de privacidad de Google</a>
-            </p>
           </section>
 
           <section>

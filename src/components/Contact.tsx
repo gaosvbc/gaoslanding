@@ -196,23 +196,6 @@ export function Contact() {
             </div>
           </form>
         )}
-
-        <div className="mt-24 w-full flex flex-col items-center py-20 border-t border-b border-neutral-800">
-          <span className="font-sans text-xs tracking-[0.3em] text-neutral-500 uppercase mb-6">
-            Dónde estamos
-          </span>
-          <p className="font-serif text-2xl md:text-3xl text-white leading-loose text-center mb-12">
-            Glorieta de Ruiz Giménez 5<br />Madrid
-          </p>
-          <a
-            href="https://maps.google.com/?q=Glorieta+de+Ruiz+Gimenez+5,+Madrid"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-white/30 text-white text-xs tracking-[0.3em] uppercase px-8 py-3 hover:border-white/80 transition-colors"
-          >
-            CÓMO LLEGAR
-          </a>
-        </div>
       </div>
     </div>
   );
