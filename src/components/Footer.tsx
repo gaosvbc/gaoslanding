@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
   return (
     <footer id="contacto" className="bg-[#050505] text-white pt-32 pb-12 px-6 md:px-12 lg:px-24">
@@ -15,15 +17,22 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-neutral-800 pt-8">
-          <div className="font-serif text-2xl tracking-tighter">GAOS</div>
-          <div className="flex gap-8 font-sans text-xs tracking-widest uppercase text-neutral-500">
-            <a href="https://www.instagram.com/gaosreformas/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
-            <a href="https://www.tiktok.com/@gaosreformas" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">TikTok</a>
-            <a href="mailto:hola@gaos.es" className="hover:text-white transition-colors">HOLA@GAOS.ES</a>
+        <div className="flex flex-col gap-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-neutral-800 pt-8">
+            <div className="font-serif text-2xl tracking-tighter">GAOS</div>
+            <div className="flex gap-8 font-sans text-xs tracking-widest uppercase text-neutral-500">
+              <a href="https://www.instagram.com/gaosreformas/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+              <a href="https://www.tiktok.com/@gaosreformas" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">TikTok</a>
+              <a href="mailto:hola@gaos.es" className="hover:text-white transition-colors">HOLA@GAOS.ES</a>
+            </div>
           </div>
-          <div className="font-sans text-xs tracking-widest text-neutral-600 uppercase">
-            © {new Date().getFullYear()} Gaos. Todos los derechos reservados.
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 font-sans text-[10px] md:text-xs tracking-widest text-neutral-600 uppercase">
+            <span>© {new Date().getFullYear()} Gaos. Todos los derechos reservados.</span>
+            <div className="flex gap-6">
+              <Link to="/aviso-legal" className="hover:text-neutral-400 transition-colors">Aviso Legal</Link>
+              <Link to="/politica-de-privacidad" className="hover:text-neutral-400 transition-colors">Política de Privacidad</Link>
+              <Link to="/politica-de-cookies" className="hover:text-neutral-400 transition-colors">Política de Cookies</Link>
+            </div>
           </div>
         </div>
 

@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextReveal } from "./TextReveal";
 import { Link } from "react-router-dom";
+import { useCookieConsent } from "./CookieBanner";
 
 type Status = "idle" | "submitting" | "succeeded" | "error";
 
@@ -10,6 +11,9 @@ export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [privacyError, setPrivacyError] = useState(false);
+  const { consent, updateConsent } = useCookieConsent();
 
   useGSAP(() => {
     gsap.fromTo(
@@ -21,6 +25,11 @@ export function Contact() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!privacyAccepted) {
+      setPrivacyError(true);
+      return;
+    }
+    setPrivacyError(false);
     setStatus("submitting");
     setErrorMessage(null);
 
@@ -142,6 +151,33 @@ export function Contact() {
               </label>
             </div>
 
+            <div className="flex flex-col gap-1 mt-4">
+              <label className="flex items-center gap-3 font-sans text-xs uppercase tracking-widest text-neutral-400 cursor-pointer w-fit">
+                <input
+                  type="checkbox"
+                  required
+                  checked={privacyAccepted}
+                  onChange={(e) => {
+                    setPrivacyAccepted(e.target.checked);
+                    if (e.target.checked) setPrivacyError(false);
+                  }}
+                  onInvalid={(e) => {
+                    e.preventDefault();
+                    setPrivacyError(true);
+                  }}
+                  className="w-3.5 h-3.5 appearance-none border border-neutral-600 bg-transparent checked:bg-white checked:border-white transition-colors cursor-pointer relative after:content-[''] after:absolute after:hidden checked:after:block after:left-[4px] after:top-[1px] after:w-[3px] after:h-[7px] after:border-r-[1.5px] after:border-b-[1.5px] after:border-black after:rotate-45"
+                />
+                <span>
+                  He leído y acepto la <Link to="/politica-de-privacidad" className="text-white underline hover:text-neutral-300 transition-colors">Política de Privacidad</Link>
+                </span>
+              </label>
+              {privacyError && (
+                <p className="font-sans text-xs text-red-500 tracking-wide mt-2">
+                  Debes aceptar la Política de Privacidad para continuar.
+                </p>
+              )}
+            </div>
+
             {status === "error" && errorMessage && (
               <p className="font-sans text-sm text-red-500 tracking-wide">
                 {errorMessage}
@@ -152,7 +188,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className={`group flex items-center gap-4 transition-opacity ${status === "submitting" ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'}`}
+                className={`group flex items-center gap-4 transition-opacity ${status === "submitting" || !privacyAccepted ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'}`}
               >
                 <span className="font-sans text-sm uppercase tracking-[0.2em]">
                   {status === "submitting" ? 'Enviando...' : 'Enviar Consulta'}
@@ -162,6 +198,36 @@ export function Contact() {
             </div>
           </form>
         )}
+
+        <div className="mt-24 w-full h-[400px] md:h-[500px]">
+          {consent === 'accepted' ? (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2891157929424!2d-3.7093220235313177!3d40.42903745516086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422864ca02c817%3A0xc6fb6faeebda1866!2sGta.%20de%20Ruiz%20Gim%C3%A9nez%2C%205%2C%20Chamber%C3%AD%2C%2028015%20Madrid!5e0!3m2!1sen!2ses!4v1700000000000!5m2!1sen!2ses"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+            ></iframe>
+          ) : (
+            <div className="w-full h-full bg-neutral-900 border border-neutral-800 flex flex-col items-center justify-center p-6 text-center space-y-6">
+              <p className="font-sans text-sm md:text-base text-neutral-400">
+                Acepta las cookies para ver el mapa interactivo.
+              </p>
+              <button
+                onClick={() => {
+                  updateConsent(null);
+                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }}
+                className="border border-white text-white hover:bg-white hover:text-black transition-colors px-6 py-3 font-sans text-xs uppercase tracking-widest"
+              >
+                Gestionar cookies
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
