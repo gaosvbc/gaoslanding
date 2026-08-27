@@ -23,7 +23,7 @@ export function Hero() {
       <header className={`flex justify-between items-center w-full z-50 relative transition-all duration-300 ${isMenuOpen ? "" : "mix-blend-difference"}`}>
         <Link to="/" onClick={() => setIsMenuOpen(false)} className="font-sans text-sm tracking-widest uppercase text-white">Gaos</Link>
         <nav className="flex gap-8 font-sans text-xs tracking-widest uppercase hidden md:flex text-white">
-          <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">Studio</a>
+          <Link to="/studio" className="hover:text-neutral-400 transition-colors">Studio</Link>
           <Link to="/reformas" className="hover:text-neutral-400 transition-colors">Reformas</Link>
           <Link to="/contacto" className="hover:text-neutral-400 transition-colors">Contacto</Link>
         </nav>
@@ -42,7 +42,7 @@ export function Hero() {
         }`}
       >
         <nav className="flex flex-col items-center gap-12 font-sans text-xl tracking-widest uppercase text-white">
-          <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Studio</a>
+          <Link to="/studio" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Studio</Link>
           <Link to="/reformas" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Reformas</Link>
           <Link to="/contacto" onClick={() => setIsMenuOpen(false)} className="hover:text-neutral-400 transition-colors">Contacto</Link>
         </nav>
