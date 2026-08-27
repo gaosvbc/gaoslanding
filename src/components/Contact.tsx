@@ -3,16 +3,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextReveal } from "./TextReveal";
 import { Link } from "react-router-dom";
-
 type Status = "idle" | "submitting" | "succeeded" | "error";
-
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [privacyError, setPrivacyError] = useState(false);
-
   useGSAP(() => {
     gsap.fromTo(
       containerRef.current,
@@ -20,7 +17,6 @@ export function Contact() {
       { opacity: 1, duration: 1, ease: "power2.out" }
     );
   }, []);
-
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!privacyAccepted) {
@@ -30,7 +26,6 @@ export function Contact() {
     setPrivacyError(false);
     setStatus("submitting");
     setErrorMessage(null);
-
     const form = e.currentTarget;
     const formData = new FormData(form);
     const payload = {
@@ -39,30 +34,29 @@ export function Contact() {
       descripcion: formData.get("descripcion"),
       _gotcha: formData.get("_gotcha"),
     };
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-
       const data = await res.json().catch(() => ({}));
-
       if (!res.ok) {
         setErrorMessage(data?.error || "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.");
         setStatus("error");
         return;
       }
-
       setStatus("succeeded");
       form.reset();
+      const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+      if (typeof gtag === "function") {
+        gtag('event', 'conversion', { send_to: 'AW-18193613436/TLx0CNvi0egcEPyEsuND' });
+      }
     } catch {
       setErrorMessage("No se pudo conectar con el servidor. Comprueba tu conexión e inténtalo de nuevo.");
       setStatus("error");
     }
   }
-
   return (
     <div ref={containerRef} className="min-h-screen bg-[#050505] flex flex-col pt-8 pb-16 px-6 md:px-12 lg:px-24">
       {/* Subtle Menu Placeholder */}
@@ -73,12 +67,10 @@ export function Contact() {
         </nav>
         <button className="md:hidden font-sans text-xs tracking-widest uppercase">Volver</button>
       </header>
-
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col justify-center">
         <TextReveal as="h1" className="font-serif text-5xl md:text-7xl lg:text-8xl mb-12">
           Hablemos de tu <span className="italic text-neutral-500">gao</span>.
         </TextReveal>
-
         {status === "succeeded" ? (
           <div className="mt-12 bg-neutral-900/50 border border-neutral-800 p-12 lg:p-16 text-center space-y-6">
             <h2 className="font-serif text-3xl md:text-4xl text-white">Mensaje enviado</h2>
@@ -104,7 +96,6 @@ export function Contact() {
               className="absolute -left-[9999px] w-px h-px opacity-0"
               aria-hidden="true"
             />
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="relative group">
                 <input 
@@ -119,7 +110,6 @@ export function Contact() {
                   Nombre
                 </label>
               </div>
-
               <div className="relative group">
                 <input 
                   type="email" 
@@ -134,7 +124,6 @@ export function Contact() {
                 </label>
               </div>
             </div>
-
             <div className="relative group">
               <textarea 
                 id="description" 
@@ -148,7 +137,6 @@ export function Contact() {
                 Breve descripción de tu proyecto
               </label>
             </div>
-
             <div className="flex flex-col gap-1 mt-4">
               <label className="flex items-center gap-3 font-sans text-xs uppercase tracking-widest text-neutral-400 cursor-pointer w-fit">
                 <input
@@ -175,13 +163,11 @@ export function Contact() {
                 </p>
               )}
             </div>
-
             {status === "error" && errorMessage && (
               <p className="font-sans text-sm text-red-500 tracking-wide">
                 {errorMessage}
               </p>
             )}
-
             <div className="mt-8">
               <button
                 type="submit"
@@ -200,4 +186,3 @@ export function Contact() {
     </div>
   );
 }
-  
