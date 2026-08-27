@@ -1,8 +1,30 @@
 import { Link } from "react-router-dom";
 
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Gaos Reformas",
+  "image": "https://gaos.es/og-image.jpg",
+  "url": "https://gaos.es",
+  "telephone": "+34614279784",
+  "email": "hola@gaos.es",
+  "areaServed": [
+    { "@type": "City", "name": "Madrid" },
+    { "@type": "City", "name": "Majadahonda" },
+  ],
+  "sameAs": [
+    "https://www.instagram.com/gaosreformas/",
+    "https://www.tiktok.com/@gaosreformas",
+  ],
+};
+
 export function Footer() {
   return (
     <footer id="contacto" className="bg-[#050505] text-white pt-32 pb-12 px-6 md:px-12 lg:px-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
+      />
       <div className="max-w-7xl mx-auto flex flex-col min-h-[50vh] justify-between">
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-neutral-800 mb-24">
