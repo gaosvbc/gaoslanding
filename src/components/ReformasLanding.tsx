@@ -1,4 +1,4 @@
-import { useRef, useState, FormEvent } from "react";
+import { useRef, useState, useEffect, FormEvent } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ const SERVICIOS = [
     num: "01",
     titulo: "Reforma integral",
     texto:
-      "Vivienda completa, de la demolición al último remate. Diseño y ejecución con el mismo equipo, sin intermediarios ni cambios de interlocutor a mitad de obra.",
+      "Vivienda completa, de la demolición al último remate. Un mismo equipo de principio a fin, sin intermediarios ni cambios de interlocutor a mitad de obra.",
   },
   {
     num: "02",
@@ -24,12 +24,12 @@ const SERVICIOS = [
     num: "03",
     titulo: "Reforma de baño",
     texto:
-      "Baños con criterio de spa: revestimientos premium, iluminación técnica y fontanería resuelta con la misma exigencia que el diseño.",
+      "Baños con criterio de spa: revestimientos premium, iluminación técnica y fontanería resuelta con la misma exigencia que el resto de la obra.",
   },
 ];
 
 const CONFIANZA = [
-  "Diseño y ejecución con el mismo equipo, de principio a fin",
+  "Un mismo equipo de principio a fin, sin subcontratas",
   "5/5 en Habitissimo (6 opiniones verificadas)",
   "Presupuesto sin compromiso",
   "Zona Madrid capital y Majadahonda",
@@ -48,6 +48,41 @@ export function ReformasLanding() {
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power2.out" }
     );
+  }, []);
+
+  // Título y meta description propios de esta página: solo reformas, sin
+  // mencionar diseño de interiores (eso es mensaje de Gaos Studio, no de esta
+  // landing). index.html trae el título/meta por defecto de la home; aquí lo
+  // sobreescribimos mientras el visitante está en /reformas y lo devolvemos
+  // al salir.
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title = "Reforma Integral en Madrid | Gaos Reformas";
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const prevDescription = metaDescription?.getAttribute("content") ?? null;
+    metaDescription?.setAttribute(
+      "content",
+      "Reformas integrales, de cocina y de baño en Madrid, con cobertura también en Majadahonda. Presupuesto sin compromiso."
+    );
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const prevOgTitle = ogTitle?.getAttribute("content") ?? null;
+    ogTitle?.setAttribute("content", "Gaos Reformas — Reforma Integral en Madrid");
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const prevOgDescription = ogDescription?.getAttribute("content") ?? null;
+    ogDescription?.setAttribute(
+      "content",
+      "Reformas integrales, de cocina y de baño en Madrid, con cobertura también en Majadahonda. Presupuesto sin compromiso."
+    );
+
+    return () => {
+      document.title = prevTitle;
+      if (prevDescription !== null) metaDescription?.setAttribute("content", prevDescription);
+      if (prevOgTitle !== null) ogTitle?.setAttribute("content", prevOgTitle);
+      if (prevOgDescription !== null) ogDescription?.setAttribute("content", prevOgDescription);
+    };
   }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -111,12 +146,12 @@ export function ReformasLanding() {
           </div>
 
           <TextReveal as="h1" className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-10">
-            Reforma integral en <span className="italic text-neutral-400">Madrid y Majadahonda</span>.
+            Reforma integral en <span className="italic text-neutral-400">Madrid</span>.
           </TextReveal>
 
           <TextReveal delay={0.15} className="mb-14">
             <p className="font-sans text-base md:text-lg leading-relaxed text-neutral-300 max-w-2xl">
-              Diseño y ejecución de reformas de gama alta, con un único equipo del concepto a la
+              Reformas integrales de gama alta ejecutadas por un único equipo, del proyecto a la
               última llave. Cocinas, baños y vivienda completa, sin sorpresas de presupuesto ni
               cambios de interlocutor.
             </p>
@@ -172,9 +207,9 @@ export function ReformasLanding() {
           </TextReveal>
           <TextReveal delay={0.15}>
             <p className="font-sans text-base leading-relaxed text-neutral-400 max-w-2xl">
-              Gaos nace de la unión de diseño de interiores y ejecución de obra bajo un mismo
-              equipo: la propuesta que dibujamos es la que construimos, sin traducciones perdidas
-              entre estudio y constructora. Trabajamos con capacidad limitada de proyectos
+              Ejecutamos cada reforma con un equipo propio, sin subcontratar oficios ni perder
+              seguimiento entre gremios: mismo interlocutor de principio a fin y presupuesto
+              cerrado desde el primer día. Trabajamos con capacidad limitada de proyectos
               simultáneos para poder dar seguimiento real a cada obra, en Madrid capital y
               Majadahonda.
             </p>
