@@ -28,10 +28,10 @@ export function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col min-h-[50vh] justify-between">
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-neutral-800 mb-24">
-          <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" className="group bg-[#050505] p-12 lg:p-24 flex flex-col justify-between aspect-square md:aspect-auto hover:bg-[#0a0a0a] transition-colors cursor-pointer">
+          <Link to="/studio" className="group bg-[#050505] p-12 lg:p-24 flex flex-col justify-between aspect-square md:aspect-auto hover:bg-[#0a0a0a] transition-colors cursor-pointer">
             <span className="font-sans text-xs tracking-widest uppercase text-neutral-500 mb-12 block group-hover:text-neutral-300 transition-colors">01</span>
             <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl group-hover:italic transition-all">Explora la Estética <br/><span className="text-neutral-500 text-2xl md:text-3xl lg:text-4xl block mt-4 font-sans not-italic uppercase tracking-widest">Gaos Studio</span></h3>
-          </a>
+          </Link>
           
           <Link to="/reformas" className="group bg-[#050505] p-12 lg:p-24 flex flex-col justify-between aspect-square md:aspect-auto hover:bg-[#0a0a0a] transition-colors cursor-pointer">
             <span className="font-sans text-xs tracking-widest uppercase text-neutral-500 mb-12 block group-hover:text-neutral-300 transition-colors">02</span>
