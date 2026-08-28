@@ -10,32 +10,32 @@ type Status = "idle" | "submitting" | "succeeded" | "error";
 const SERVICIOS = [
   {
     num: "01",
-    titulo: "Reforma integral",
+    titulo: "Diseño integral de vivienda",
     texto:
-      "Vivienda completa, de la demolición al último remate. Un mismo equipo de principio a fin, sin intermediarios ni cambios de interlocutor a mitad de obra.",
+      "Distribución, materiales y mobiliario a medida para cada estancia, del concepto al proyecto ejecutivo y la visualización 3D antes de empezar.",
   },
   {
     num: "02",
-    titulo: "Reforma de cocina",
+    titulo: "Diseño de cocinas",
     texto:
-      "Cocinas funcionales de alta gama: distribución, electrodomésticos integrados, materiales nobles y acabados a medida del resto de la vivienda.",
+      "Cocinas de autor donde la funcionalidad y la estética conviven, con cada acabado decidido antes de tocar un solo material.",
   },
   {
     num: "03",
-    titulo: "Reforma de baño",
+    titulo: "Interiorismo de salón y zonas de estar",
     texto:
-      "Baños con criterio de spa: revestimientos premium, iluminación técnica y fontanería resuelta con la misma exigencia que el resto de la obra.",
+      "Espacios que buscan el equilibrio entre luz, simetría y pureza de materiales, pensados para vivirse a diario.",
   },
 ];
 
 const CONFIANZA = [
-  "Un mismo equipo de principio a fin, sin subcontratas",
-  "5/5 en Habitissimo (6 opiniones verificadas)",
+  "Equipo multidisciplinar: arquitectos, diseñadores y constructores",
+  "Del concepto a la visualización 3D antes de empezar",
   "Presupuesto sin compromiso",
-  "Zona Madrid capital y Majadahonda",
+  "Proyectos en Madrid",
 ];
 
-export function ReformasLanding() {
+export function StudioLanding() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -50,31 +50,30 @@ export function ReformasLanding() {
     );
   }, []);
 
-  // Título y meta description propios de esta página: solo reformas, sin
-  // mencionar diseño de interiores (eso es mensaje de Gaos Studio, no de esta
-  // landing). index.html trae el título/meta por defecto de la home; aquí lo
-  // sobreescribimos mientras el visitante está en /reformas y lo devolvemos
-  // al salir.
+  // Título y meta description propios de esta página: diseño de interiores en
+  // Madrid, sin mezclar el mensaje de Gaos Reformas. index.html trae el
+  // título/meta por defecto de la home; aquí lo sobreescribimos mientras el
+  // visitante está en /studio y lo devolvemos al salir.
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = "Reforma Integral en Madrid | Gaos Reformas";
+    document.title = "Diseño de Interiores en Madrid | Gaos Studio";
 
     const metaDescription = document.querySelector('meta[name="description"]');
     const prevDescription = metaDescription?.getAttribute("content") ?? null;
     metaDescription?.setAttribute(
       "content",
-      "Reformas integrales, de cocina y de baño en Madrid, con cobertura también en Majadahonda. Presupuesto sin compromiso."
+      "Diseño de interiores de gama alta en Madrid: vivienda completa, cocinas y espacios de estar, del concepto a la visualización 3D. Presupuesto sin compromiso."
     );
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const prevOgTitle = ogTitle?.getAttribute("content") ?? null;
-    ogTitle?.setAttribute("content", "Gaos Reformas — Reforma Integral en Madrid");
+    ogTitle?.setAttribute("content", "Gaos Studio — Diseño de Interiores en Madrid");
 
     const ogDescription = document.querySelector('meta[property="og:description"]');
     const prevOgDescription = ogDescription?.getAttribute("content") ?? null;
     ogDescription?.setAttribute(
       "content",
-      "Reformas integrales, de cocina y de baño en Madrid, con cobertura también en Majadahonda. Presupuesto sin compromiso."
+      "Diseño de interiores de gama alta en Madrid: vivienda completa, cocinas y espacios de estar, del concepto a la visualización 3D. Presupuesto sin compromiso."
     );
 
     return () => {
@@ -132,7 +131,7 @@ export function ReformasLanding() {
       <header className="flex justify-between items-center w-full z-50 relative mix-blend-difference pt-8 pb-4 px-6 md:px-12 lg:px-24">
         <Link to="/" className="font-sans text-sm tracking-widest uppercase text-white">Gaos</Link>
         <nav className="flex gap-8 font-sans text-xs tracking-widest uppercase hidden md:flex text-white">
-          <Link to="/studio" className="hover:text-neutral-400 transition-colors">Studio</Link>
+          <Link to="/reformas" className="hover:text-neutral-400 transition-colors">Reformas</Link>
           <Link to="/contacto" className="hover:text-neutral-400 transition-colors">Contacto</Link>
         </nav>
       </header>
@@ -142,18 +141,18 @@ export function ReformasLanding() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div className="h-px w-16 bg-neutral-600"></div>
-            <span className="font-sans text-xs tracking-[0.2em] uppercase text-neutral-400">Gaos Reformas</span>
+            <span className="font-sans text-xs tracking-[0.2em] uppercase text-neutral-400">Gaos Studio</span>
           </div>
 
           <TextReveal as="h1" className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-10">
-            Reforma integral en <span className="italic text-neutral-400">Madrid</span>.
+            Diseño de interiores en <span className="italic text-neutral-400">Madrid</span>.
           </TextReveal>
 
           <TextReveal delay={0.15} className="mb-14">
             <p className="font-sans text-base md:text-lg leading-relaxed text-neutral-300 max-w-2xl">
-              Reformas integrales de gama alta ejecutadas por un único equipo, del proyecto a la
-              última llave. Cocinas, baños y vivienda completa, sin sorpresas de presupuesto ni
-              cambios de interlocutor.
+              Diseño de interiores de gama alta, del concepto a la visualización 3D antes de
+              empezar. Vivienda completa, cocinas y espacios de estar, con un equipo
+              multidisciplinar de principio a fin.
             </p>
           </TextReveal>
 
@@ -184,7 +183,7 @@ export function ReformasLanding() {
       <section className="py-20 md:py-28 px-6 md:px-12 lg:px-24 border-t border-neutral-900">
         <div className="max-w-6xl mx-auto">
           <TextReveal as="h2" className="font-serif text-3xl md:text-5xl leading-tight mb-16 max-w-2xl">
-            Un equipo, tres frentes de obra.
+            Un equipo, tres estancias.
           </TextReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-800">
@@ -207,11 +206,10 @@ export function ReformasLanding() {
           </TextReveal>
           <TextReveal delay={0.15}>
             <p className="font-sans text-base leading-relaxed text-neutral-400 max-w-2xl">
-              Ejecutamos cada reforma con un equipo propio, sin subcontratar oficios ni perder
-              seguimiento entre gremios: mismo interlocutor de principio a fin y presupuesto
-              cerrado desde el primer día. Trabajamos con capacidad limitada de proyectos
-              simultáneos para poder dar seguimiento real a cada obra, en Madrid capital y
-              Majadahonda.
+              Creemos que el espacio perfecto nace del equilibrio entre concepto y ejecución.
+              Somos un equipo multidisciplinar de arquitectos, diseñadores y constructores que
+              acompaña cada proyecto desde la primera idea hasta la última visualización 3D, en
+              Madrid.
             </p>
           </TextReveal>
         </div>
@@ -258,40 +256,40 @@ export function ReformasLanding() {
                 <div className="relative group">
                   <input
                     type="text"
-                    id="reformas-name"
+                    id="studio-name"
                     name="nombre"
                     className="w-full bg-transparent border-b border-neutral-800 py-4 font-sans text-lg focus:outline-none focus:border-white transition-colors peer placeholder-transparent"
                     placeholder="Nombre"
                     required
                   />
-                  <label htmlFor="reformas-name" className="absolute left-0 top-4 font-sans text-sm text-neutral-500 uppercase tracking-widest transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-white peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white">
+                  <label htmlFor="studio-name" className="absolute left-0 top-4 font-sans text-sm text-neutral-500 uppercase tracking-widest transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-white peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white">
                     Nombre
                   </label>
                 </div>
                 <div className="relative group">
                   <input
                     type="email"
-                    id="reformas-email"
+                    id="studio-email"
                     name="email"
                     className="w-full bg-transparent border-b border-neutral-800 py-4 font-sans text-lg focus:outline-none focus:border-white transition-colors peer placeholder-transparent"
                     placeholder="Email"
                     required
                   />
-                  <label htmlFor="reformas-email" className="absolute left-0 top-4 font-sans text-sm text-neutral-500 uppercase tracking-widest transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-white peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white">
+                  <label htmlFor="studio-email" className="absolute left-0 top-4 font-sans text-sm text-neutral-500 uppercase tracking-widest transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-white peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white">
                     Email
                   </label>
                 </div>
               </div>
               <div className="relative group">
                 <textarea
-                  id="reformas-description"
+                  id="studio-description"
                   name="descripcion"
                   rows={4}
                   className="w-full bg-transparent border-b border-neutral-800 py-4 font-sans text-lg focus:outline-none focus:border-white transition-colors peer placeholder-transparent resize-none"
-                  placeholder="Cuéntanos tu proyecto: integral, cocina, baño..."
+                  placeholder="Cuéntanos tu proyecto: vivienda completa, cocina, salón..."
                   required
                 ></textarea>
-                <label htmlFor="reformas-description" className="absolute left-0 top-4 font-sans text-sm text-neutral-500 uppercase tracking-widest transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-white peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white">
+                <label htmlFor="studio-description" className="absolute left-0 top-4 font-sans text-sm text-neutral-500 uppercase tracking-widest transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-white peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white">
                   Breve descripción de tu proyecto
                 </label>
               </div>
