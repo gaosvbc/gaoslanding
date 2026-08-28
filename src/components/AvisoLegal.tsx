@@ -32,7 +32,7 @@ export default function AvisoLegal() {
               <li>NIF/CIF: B56445059</li>
               <li>Domicilio: Glorieta de Ruiz Giménez 5, Madrid</li>
               <li>Correo electrónico: hola@gaos.es</li>
-              <li>Inscrita en el Registro Mercantil de Madrid: [TODO: Tomo, Folio, Hoja M-XXXXX]</li>
+              <li>Inscrita en el Registro Mercantil de Madrid, Tomo 45.779, Folio 1, Sección General de Sociedades, Hoja M-804.664, Inscripción 1ª</li>
             </ul>
           </section>
 
