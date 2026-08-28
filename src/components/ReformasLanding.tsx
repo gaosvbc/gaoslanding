@@ -132,7 +132,7 @@ export function ReformasLanding() {
       <header className="flex justify-between items-center w-full z-50 relative mix-blend-difference pt-8 pb-4 px-6 md:px-12 lg:px-24">
         <Link to="/" className="font-sans text-sm tracking-widest uppercase text-white">Gaos</Link>
         <nav className="flex gap-8 font-sans text-xs tracking-widest uppercase hidden md:flex text-white">
-          <a href="https://estudio.gaos.es" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-400 transition-colors">Studio</a>
+          <Link to="/studio" className="hover:text-neutral-400 transition-colors">Studio</Link>
           <Link to="/contacto" className="hover:text-neutral-400 transition-colors">Contacto</Link>
         </nav>
       </header>
