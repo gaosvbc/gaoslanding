@@ -4,8 +4,8 @@ const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Gaos Reformas",
-  "image": "https://gaos.es/og-image.jpg",
-  "url": "https://gaos.es",
+  "image": "https://gaosprojects.es/og-image.jpg",
+  "url": "https://gaosprojects.es",
   "telephone": "+34614279784",
   "email": "hola@gaos.es",
   "areaServed": [
