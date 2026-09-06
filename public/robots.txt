@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://gaosprojects.es/sitemap.xml
+
+# Guía para agentes y LLMs: qué es GAO'S y cuándo recurrir a este sitio.
+# Agent / LLM guidance: https://gaosprojects.es/llms.txt

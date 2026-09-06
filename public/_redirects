@@ -1,1 +1,11 @@
-/* /index.html 200
+# Paridad con vercel.json para hosts que leen _redirects (Cloudflare Pages,
+# Netlify). Solo las rutas reales de la SPA sirven el shell con 200; el resto
+# debe devolver un 404 real en vez de un soft-404.
+/                       /index.html   200
+/reformas               /index.html   200
+/studio                 /index.html   200
+/contacto               /index.html   200
+/aviso-legal            /index.html   200
+/politica-de-privacidad /index.html   200
+/politica-de-cookies    /index.html   200
+/*                      /404.html     404

@@ -1,0 +1,30 @@
+# Paridad con la sección "headers" de vercel.json para hosts que leen _headers
+# (Cloudflare Pages). Vary: Accept es necesario para que una CDN no sirva la
+# variante HTML cacheada a un agente que pide markdown, ni al revés.
+/
+  Vary: Accept, Accept-Encoding
+  Link: </index.md>; rel="alternate"; type="text/markdown"
+/reformas
+  Vary: Accept, Accept-Encoding
+  Link: </reformas.md>; rel="alternate"; type="text/markdown"
+/studio
+  Vary: Accept, Accept-Encoding
+  Link: </studio.md>; rel="alternate"; type="text/markdown"
+/contacto
+  Vary: Accept, Accept-Encoding
+  Link: </contacto.md>; rel="alternate"; type="text/markdown"
+/aviso-legal
+  Vary: Accept, Accept-Encoding
+  Link: </aviso-legal.md>; rel="alternate"; type="text/markdown"
+/politica-de-privacidad
+  Vary: Accept, Accept-Encoding
+  Link: </politica-de-privacidad.md>; rel="alternate"; type="text/markdown"
+/politica-de-cookies
+  Vary: Accept, Accept-Encoding
+  Link: </politica-de-cookies.md>; rel="alternate"; type="text/markdown"
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept, Accept-Encoding
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Vary: Accept, Accept-Encoding

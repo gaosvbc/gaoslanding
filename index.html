@@ -11,11 +11,121 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
     <link rel="canonical" href="https://gaosprojects.es/" />
+    <!-- Variante markdown de esta página para agentes (también vía Accept: text/markdown). -->
+    <link rel="alternate" type="text/markdown" href="/index.md" title="Versión markdown" />
+    <link rel="help" type="text/plain" href="/llms.txt" title="Guía para agentes" />
     <meta property="og:title" content="GAO'S — Diseño de Interiores y Reformas Integrales en Madrid" />
     <meta property="og:description" content="Del concepto a la reforma integral llave en mano en Madrid, con cobertura también en Majadahonda." />
     <meta property="og:image" content="https://gaosprojects.es/og-image.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gaosprojects.es" />
+
+    <!-- Datos estructurados JSON-LD: identidad del negocio legible por máquinas.
+         Estaba renderizado por React en el Footer, invisible para crawlers que no
+         ejecutan JavaScript; ahora viaja en el HTML inicial. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "HomeAndConstructionBusiness",
+            "@id": "https://gaosprojects.es/#business",
+            "name": "Gaos Reformas",
+            "alternateName": ["GAO'S", "Gaos Studio"],
+            "legalName": "Gaos VBC",
+            "vatID": "B56445059",
+            "description": "Estudio de diseño de interiores y empresa de reformas integrales de gama alta en Madrid y Majadahonda. Un mismo equipo cubre el concepto, la visualización 3D y la ejecución de obra llave en mano.",
+            "url": "https://gaosprojects.es",
+            "image": "https://gaosprojects.es/og-image.jpg",
+            "logo": "https://gaosprojects.es/android-chrome-512x512.png",
+            "telephone": "+34614279784",
+            "email": "hola@gaos.es",
+            "priceRange": "$$$",
+            "knowsLanguage": ["es"],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Glorieta de Ruiz Giménez 5",
+              "addressLocality": "Madrid",
+              "addressRegion": "Madrid",
+              "addressCountry": "ES"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Madrid" },
+              { "@type": "City", "name": "Majadahonda" }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/gaosreformas/",
+              "https://www.tiktok.com/@gaosreformas"
+            ],
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reforma integral de vivienda",
+                  "description": "Vivienda completa, de la demolición al último remate, con un mismo equipo de principio a fin."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reforma de cocina",
+                  "description": "Cocinas de alta gama: distribución, electrodomésticos integrados, materiales nobles y acabados a medida."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reforma de baño",
+                  "description": "Baños con criterio de spa: revestimientos premium, iluminación técnica y fontanería de precisión."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Diseño de interiores",
+                  "description": "Distribución, materiales y mobiliario a medida, del concepto al proyecto ejecutivo y la visualización 3D."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://gaosprojects.es/#website",
+            "url": "https://gaosprojects.es",
+            "name": "GAO'S",
+            "inLanguage": "es",
+            "publisher": { "@id": "https://gaosprojects.es/#business" }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Estilos del contenido estático que se sirve en el HTML inicial. Vive
+         aquí (y no en Tailwind) porque debe verse antes de que cargue el
+         bundle: es lo que leen los crawlers que no ejecutan JavaScript. -->
+    <style>
+      html { background: #050505; color-scheme: dark; }
+      #static-content {
+        margin: 0 auto;
+        max-width: 46rem;
+        padding: 4rem 1.5rem;
+        color: #a3a3a3;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+      #static-content .eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: #737373; margin: 0 0 2rem; }
+      #static-content h1 { font-family: ui-serif, Georgia, "Times New Roman", serif; font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.1; letter-spacing: -0.02em; color: #f3f4f6; margin: 0 0 1.5rem; }
+      #static-content h2 { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #737373; font-weight: 400; margin: 2.5rem 0 0.75rem; }
+      #static-content h3 { font-family: ui-serif, Georgia, "Times New Roman", serif; font-size: 1.25rem; color: #f3f4f6; font-weight: 400; margin: 1.5rem 0 0.5rem; }
+      #static-content a { color: #f3f4f6; }
+      #static-content ul { padding-left: 1.1rem; margin: 0.5rem 0; }
+      #static-content li { margin-bottom: 0.35rem; }
+    </style>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18193613436"></script>
@@ -27,7 +137,80 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      El contenido de #static-content es la versión sin JavaScript de la home.
+      React lo sustituye por la experiencia completa al montar (createRoot vacía
+      el contenedor), pero viaja en el HTML inicial para que crawlers y agentes
+      que no ejecutan JS encuentren texto real en lugar de un shell vacío.
+      Si cambias el copy de la home, actualiza también public/index.md.
+    -->
+    <div id="root">
+      <div id="static-content">
+        <p class="eyebrow">GAO'S — Madrid y Majadahonda</p>
+
+        <h1>Diseño de interiores y reformas integrales en Madrid</h1>
+
+        <p>
+          GAO'S es un equipo multidisciplinar de arquitectos, diseñadores y constructores.
+          Cubrimos el ciclo completo de una reforma de gama alta: del concepto y la
+          visualización 3D a la ejecución de obra llave en mano. El espacio perfecto nace
+          del equilibrio entre concepto y ejecución, así que trabajamos con un mismo
+          interlocutor de principio a fin, sin subcontratar oficios y con presupuesto
+          cerrado desde el primer día.
+        </p>
+
+        <h2>Las dos ramas del estudio</h2>
+
+        <h3>Gaos Studio — diseño de interiores</h3>
+        <p>
+          Damos vida a tus ideas antes de tocar un solo ladrillo: distribución, materiales
+          y mobiliario a medida para cada estancia, del concepto al proyecto ejecutivo y la
+          visualización 3D. Diseño integral de vivienda, cocinas e interiorismo de salón y
+          zonas de estar. <a href="/studio">Ver Gaos Studio</a>.
+        </p>
+
+        <h3>Gaos Reformas — ejecución de obra</h3>
+        <p>
+          Reformas integrales de gama alta ejecutadas por un único equipo, del proyecto a la
+          última llave: reforma integral de vivienda, reforma de cocina y reforma de baño.
+          Cuidamos cada detalle, desde la demolición hasta el último remate, trabajando con
+          los mejores materiales y artesanos. <a href="/reformas">Ver Gaos Reformas</a>.
+        </p>
+
+        <h2>Por qué GAO'S</h2>
+        <ul>
+          <li>Un mismo equipo de principio a fin, sin subcontratas.</li>
+          <li>5/5 en Habitissimo (6 opiniones verificadas).</li>
+          <li>Presupuesto cerrado y sin compromiso.</li>
+          <li>Cobertura en Madrid capital y Majadahonda.</li>
+        </ul>
+
+        <h2>Contacto</h2>
+        <p>
+          Escríbenos a <a href="mailto:hola@gaos.es">hola@gaos.es</a>, por
+          <a href="https://wa.me/message/AWEBFFVJDRZNJ1">WhatsApp</a> o desde el
+          <a href="/contacto">formulario de contacto</a>. Te contactamos para hablar de tu
+          proyecto y preparar un presupuesto sin compromiso.
+        </p>
+
+        <h2>Páginas</h2>
+        <ul>
+          <li><a href="/reformas">Gaos Reformas — reforma integral en Madrid</a></li>
+          <li><a href="/studio">Gaos Studio — diseño de interiores en Madrid</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+          <li><a href="/aviso-legal">Aviso Legal</a></li>
+          <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
+          <li><a href="/politica-de-cookies">Política de Cookies</a></li>
+        </ul>
+
+        <h2>Para agentes</h2>
+        <ul>
+          <li><a href="/llms.txt">llms.txt</a> — qué es GAO'S y cuándo usarlo</li>
+          <li><a href="/index.md">index.md</a> — esta página en markdown</li>
+          <li><a href="/sitemap.xml">sitemap.xml</a></li>
+        </ul>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

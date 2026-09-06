@@ -2,10 +2,95 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "destination": "/index.md",
+      "permanent": false
+    },
+    {
+      "source": "/:page(reformas|studio|contacto|aviso-legal|politica-de-privacidad|politica-de-cookies)",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "destination": "/:page.md",
+      "permanent": false
     }
+  ],
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/reformas",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</reformas.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/studio",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</studio.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/contacto",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</contacto.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/aviso-legal",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</aviso-legal.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/politica-de-privacidad",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</politica-de-privacidad.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/politica-de-cookies",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        { "key": "Link", "value": "</politica-de-cookies.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"help\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/(.*).md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    {
+      "source": "/:page(reformas|studio|contacto|aviso-legal|politica-de-privacidad|politica-de-cookies)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:page(reformas|studio|contacto|aviso-legal|politica-de-privacidad|politica-de-cookies)/",
+      "destination": "/index.html"
+    },
+    { "source": "/:path*", "destination": "/api/not-found?path=/:path*" }
   ]
 }
