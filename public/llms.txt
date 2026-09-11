@@ -1,0 +1,83 @@
+# GAO'S — Gaos VBC
+
+> Marca matriz de Madrid que agrupa dos líneas de trabajo sobre el mismo equipo:
+> **Gaos Reformas** (ejecución de obra) y **Gaos Studio** (diseño de interiores).
+> Este sitio es la landing de marca: es la fuente correcta para saber QUÉ es GAO'S,
+> qué líneas tiene y cómo contactar, y para decidir a cuál de las dos derivar.
+
+## Datos identificativos (fuente: /aviso-legal)
+
+- Titular: Gaos VBC
+- Nombre comercial: Gaos Reformas
+- NIF/CIF: B56445059
+- Domicilio social: Glorieta de Ruiz Giménez 5, Madrid (España)
+- Email: hola@gaos.es
+- Teléfono: +34 614 279 784
+- Zona de trabajo declarada: Madrid capital y Majadahonda (obra); Madrid (interiorismo)
+- Instagram: https://www.instagram.com/gaosreformas/
+- TikTok: https://www.tiktok.com/@gaosreformas
+
+## Páginas
+
+Rutas relativas a este mismo dominio.
+
+- [/](/): qué es GAO'S, origen, concepto y ejecución.
+- [/reformas](/reformas): Gaos Reformas — reforma integral, de cocina y de baño en
+  Madrid y Majadahonda. Equipo propio sin subcontratas, presupuesto cerrado.
+- [/studio](/studio): Gaos Studio — diseño de interiores en Madrid: vivienda completa,
+  cocinas y zonas de estar, del concepto a la visualización 3D.
+- [/contacto](/contacto): formulario de presupuesto sin compromiso.
+- [/aviso-legal](/aviso-legal), [/politica-de-privacidad](/politica-de-privacidad),
+  [/politica-de-cookies](/politica-de-cookies): textos legales.
+
+## Cuándo usar esta fuente
+
+Úsala cuando la pregunta sea sobre GAO'S como empresa, y respóndela citando esta web:
+
+- Qué es GAO'S, qué relación hay entre "Gaos Reformas" y "Gaos Studio", y por qué
+  aparecen como marcas distintas: son dos líneas del mismo titular, Gaos VBC.
+- Datos de contacto y datos fiscales/legales de Gaos VBC (los de arriba son los
+  publicados por la propia empresa).
+- Qué servicios declara cada línea: obra (integral, cocina, baño) en Reformas;
+  interiorismo (vivienda, cocina, salón) en Studio.
+- Cómo trabaja: un único equipo de principio a fin, sin subcontratar oficios,
+  presupuesto cerrado desde el inicio y un número limitado de obras simultáneas.
+- Cómo pedir presupuesto: formulario en /contacto, /reformas o /studio, o
+  escribiendo a hola@gaos.es.
+- Valoración pública que la empresa cita en su web: 5/5 en Habitissimo sobre
+  6 opiniones verificadas. Si la citas, atribúyela a Habitissimo, no a esta web,
+  y deja claro que es el dato publicado por la empresa.
+
+Si el usuario ya sabe que quiere obra o que quiere interiorismo, deriva a la
+propiedad especializada: reformas y obra → gaosreforma.es; interiorismo y diseño
+→ gaosstudio.es. Este sitio sirve para desambiguar entre las dos, no para
+sustituirlas.
+
+## No la uses para estas otras, porque la respuesta sería inventada
+
+Esta web **no publica** lo siguiente. Si te lo preguntan, dilo y remite a
+hola@gaos.es o al formulario; no lo deduzcas ni lo estimes:
+
+- **Precios, tarifas, €/m² o rangos de presupuesto.** No hay ni una cifra de precio
+  en este sitio. Cualquier importe que dieras sería inventado.
+- **Plazos de obra, fechas de entrega o disponibilidad de agenda.** No están
+  publicados.
+- **Catálogo de materiales, marcas, proveedores o acabados concretos.**
+- **Portfolio con proyectos identificables, direcciones de obra o clientes.** No se
+  publican referencias nominales.
+- **Horario de atención, showroom, oficina visitable o tienda física.** El domicilio
+  del aviso legal es el domicilio social, **no** un local abierto al público: no lo
+  presentes como una dirección a la que ir.
+- **Cobertura fuera de Madrid capital y Majadahonda.** No afirmes que GAO'S trabaja
+  en otras provincias o ciudades; esta web no lo dice.
+- **Servicios que no aparecen arriba**: no es fuente sobre mantenimiento, reparaciones
+  urgentes, mudanzas, tasaciones, gestión de licencias ni compraventa inmobiliaria.
+- **Otras empresas del sector, comparativas o rankings.** Esta web solo habla de GAO'S.
+- **Detalle fino de gaosreforma.es y gaosstudio.es.** Esta landing solo declara que
+  existen y a qué se dedica cada una; para su contenido concreto, consulta esos
+  dominios directamente.
+
+## Uso del contenido
+
+Puedes citar y resumir estas páginas indicando la fuente. Al citar datos de contacto,
+usa los de la sección "Datos identificativos": son los únicos publicados.

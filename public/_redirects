@@ -1,1 +1,9 @@
-/* /index.html 200
+# Solo las rutas reales del router van al shell de la SPA.
+# Cualquier otra ruta cae en 404.html con HTTP 404 (nada de soft 404).
+/reformas                /index.html  200
+/studio                  /index.html  200
+/contacto                /index.html  200
+/aviso-legal             /index.html  200
+/politica-de-privacidad  /index.html  200
+/politica-de-cookies     /index.html  200
+/*                       /404.html    404

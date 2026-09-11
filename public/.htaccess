@@ -1,9 +1,16 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+
+  # Ficheros y directorios reales se sirven tal cual.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d [OR]
+  RewriteCond %{REQUEST_FILENAME} -l
+  RewriteRule ^ - [L]
+
+  # Solo las rutas reales del router cargan el shell de la SPA.
+  RewriteRule ^(reformas|studio|contacto|aviso-legal|politica-de-privacidad|politica-de-cookies)/?$ /index.html [L]
 </IfModule>
+
+# Todo lo demás: 404 real, no soft 404.
+ErrorDocument 404 /404.html
