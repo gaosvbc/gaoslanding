@@ -8,8 +8,8 @@
   RewriteCond %{REQUEST_FILENAME} -l
   RewriteRule ^ - [L]
 
-  # Solo las rutas reales del router cargan el shell de la SPA.
-  RewriteRule ^(reformas|studio|contacto|aviso-legal|politica-de-privacidad|politica-de-cookies)/?$ /index.html [L]
+  # Cada ruta del router sirve su propio HTML pre-renderizado.
+  RewriteRule ^(reformas|studio|contacto|aviso-legal|politica-de-privacidad|politica-de-cookies)$ /$1/index.html [L]
 </IfModule>
 
 # Todo lo demás: 404 real, no soft 404.

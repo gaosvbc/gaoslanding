@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, FormEvent } from "react";
+import { useRef, useState, FormEvent } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
@@ -48,41 +48,6 @@ export function ReformasLanding() {
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power2.out" }
     );
-  }, []);
-
-  // Título y meta description propios de esta página: solo reformas, sin
-  // mencionar diseño de interiores (eso es mensaje de Gaos Studio, no de esta
-  // landing). index.html trae el título/meta por defecto de la home; aquí lo
-  // sobreescribimos mientras el visitante está en /reformas y lo devolvemos
-  // al salir.
-  useEffect(() => {
-    const prevTitle = document.title;
-    document.title = "Reforma Integral en Madrid | Gaos Reformas";
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const prevDescription = metaDescription?.getAttribute("content") ?? null;
-    metaDescription?.setAttribute(
-      "content",
-      "Reformas integrales, de cocina y de baño en Madrid, con cobertura también en Majadahonda. Presupuesto sin compromiso."
-    );
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const prevOgTitle = ogTitle?.getAttribute("content") ?? null;
-    ogTitle?.setAttribute("content", "Gaos Reformas — Reforma Integral en Madrid");
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const prevOgDescription = ogDescription?.getAttribute("content") ?? null;
-    ogDescription?.setAttribute(
-      "content",
-      "Reformas integrales, de cocina y de baño en Madrid, con cobertura también en Majadahonda. Presupuesto sin compromiso."
-    );
-
-    return () => {
-      document.title = prevTitle;
-      if (prevDescription !== null) metaDescription?.setAttribute("content", prevDescription);
-      if (prevOgTitle !== null) ogTitle?.setAttribute("content", prevOgTitle);
-      if (prevOgDescription !== null) ogDescription?.setAttribute("content", prevOgDescription);
-    };
   }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {

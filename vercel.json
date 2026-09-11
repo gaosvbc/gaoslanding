@@ -4,11 +4,11 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/reformas", "destination": "/index.html" },
-    { "source": "/studio", "destination": "/index.html" },
-    { "source": "/contacto", "destination": "/index.html" },
-    { "source": "/aviso-legal", "destination": "/index.html" },
-    { "source": "/politica-de-privacidad", "destination": "/index.html" },
-    { "source": "/politica-de-cookies", "destination": "/index.html" }
+    { "source": "/reformas", "destination": "/reformas/index.html" },
+    { "source": "/studio", "destination": "/studio/index.html" },
+    { "source": "/contacto", "destination": "/contacto/index.html" },
+    { "source": "/aviso-legal", "destination": "/aviso-legal/index.html" },
+    { "source": "/politica-de-privacidad", "destination": "/politica-de-privacidad/index.html" },
+    { "source": "/politica-de-cookies", "destination": "/politica-de-cookies/index.html" }
   ]
 }

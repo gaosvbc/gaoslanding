@@ -22,17 +22,26 @@ if (routerRoutes.length === 0) {
 }
 
 // "/" lo sirve dist/index.html desde el sistema de ficheros: no necesita rewrite.
+// El resto apunta a su propio HTML pre-renderizado, no al shell.
 const esperadas = routerRoutes.filter((r) => r !== '/').sort();
 
 const vercel = JSON.parse(fs.readFileSync('vercel.json', 'utf8'));
 const enVercel = (vercel.rewrites ?? []).map((r) => r.source).sort();
+
+for (const r of vercel.rewrites ?? []) {
+  const esperado = `${r.source}/index.html`;
+  if (r.destination !== esperado) {
+    console.error(`FALLO vercel.json: ${r.source} apunta a ${r.destination} y debería apuntar a ${esperado}`);
+    process.exitCode = 1;
+  }
+}
 
 const redirects = fs.readFileSync('public/_redirects', 'utf8');
 const enRedirects = redirects
   .split('\n')
   .filter((l) => l.trim() && !l.trim().startsWith('#'))
   .map((l) => l.trim().split(/\s+/))
-  .filter(([from, to]) => to === '/index.html')
+  .filter(([, to]) => to.endsWith('/index.html'))
   .map(([from]) => from)
   .sort();
 
@@ -61,4 +70,4 @@ if (!fs.existsSync('public/404.html')) {
   console.log('OK public/404.html presente');
 }
 
-process.exit(fallos === 0 ? 0 : 1);
+process.exit(fallos === 0 && !process.exitCode ? 0 : 1);

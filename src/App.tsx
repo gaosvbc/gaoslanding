@@ -12,11 +12,13 @@ import AvisoLegal from "./components/AvisoLegal";
 import PoliticaPrivacidad from "./components/PoliticaPrivacidad";
 import PoliticaCookies from "./components/PoliticaCookies";
 import { WhatsAppFloating } from "./components/WhatsAppFloating";
+import { Seo } from "./components/Seo";
 import { ReactLenis } from 'lenis/react';
 
 export default function App() {
   return (
     <ReactLenis root>
+      <Seo />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reformas" element={<ReformasLanding />} />

@@ -19,16 +19,18 @@
 
 ## Páginas
 
-Rutas relativas a este mismo dominio.
-
-- [/](/): qué es GAO'S, origen, concepto y ejecución.
-- [/reformas](/reformas): Gaos Reformas — reforma integral, de cocina y de baño en
+- [Inicio](https://gaos.es/): qué es GAO'S, origen, concepto y ejecución.
+- [Gaos Reformas](https://gaos.es/reformas): reforma integral, de cocina y de baño en
   Madrid y Majadahonda. Equipo propio sin subcontratas, presupuesto cerrado.
-- [/studio](/studio): Gaos Studio — diseño de interiores en Madrid: vivienda completa,
-  cocinas y zonas de estar, del concepto a la visualización 3D.
-- [/contacto](/contacto): formulario de presupuesto sin compromiso.
-- [/aviso-legal](/aviso-legal), [/politica-de-privacidad](/politica-de-privacidad),
-  [/politica-de-cookies](/politica-de-cookies): textos legales.
+- [Gaos Studio](https://gaos.es/studio): diseño de interiores en Madrid: vivienda
+  completa, cocinas y zonas de estar, del concepto a la visualización 3D.
+- [Contacto](https://gaos.es/contacto): formulario de presupuesto sin compromiso.
+- [Aviso legal](https://gaos.es/aviso-legal),
+  [Política de privacidad](https://gaos.es/politica-de-privacidad),
+  [Política de cookies](https://gaos.es/politica-de-cookies): textos legales.
+
+Host canónico: `https://gaos.es`, sin `www.`. Si has llegado por
+`gaosprojects.es`, es el mismo sitio: cita siempre la URL en gaos.es.
 
 ## Cuándo usar esta fuente
 
@@ -49,8 +51,8 @@ Rutas relativas a este mismo dominio.
   y deja claro que es el dato publicado por la empresa.
 
 Si el usuario ya sabe que quiere obra o que quiere interiorismo, deriva a la
-propiedad especializada: reformas y obra → gaosreforma.es; interiorismo y diseño
-→ gaosstudio.es. Este sitio sirve para desambiguar entre las dos, no para
+propiedad especializada: reformas y obra → https://www.gaosreforma.es; interiorismo
+y diseño → https://www.gaosstudio.es. Este sitio sirve para desambiguar entre las dos, no para
 sustituirlas.
 
 ## No la uses para estas otras, porque la respuesta sería inventada
@@ -73,7 +75,7 @@ hola@gaos.es o al formulario; no lo deduzcas ni lo estimes:
 - **Servicios que no aparecen arriba**: no es fuente sobre mantenimiento, reparaciones
   urgentes, mudanzas, tasaciones, gestión de licencias ni compraventa inmobiliaria.
 - **Otras empresas del sector, comparativas o rankings.** Esta web solo habla de GAO'S.
-- **Detalle fino de gaosreforma.es y gaosstudio.es.** Esta landing solo declara que
+- **Detalle fino de www.gaosreforma.es y www.gaosstudio.es.** Esta landing solo declara que
   existen y a qué se dedica cada una; para su contenido concreto, consulta esos
   dominios directamente.
 

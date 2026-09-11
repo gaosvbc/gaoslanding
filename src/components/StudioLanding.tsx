@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, FormEvent } from "react";
+import { useRef, useState, FormEvent } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
@@ -48,40 +48,6 @@ export function StudioLanding() {
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power2.out" }
     );
-  }, []);
-
-  // Título y meta description propios de esta página: diseño de interiores en
-  // Madrid, sin mezclar el mensaje de Gaos Reformas. index.html trae el
-  // título/meta por defecto de la home; aquí lo sobreescribimos mientras el
-  // visitante está en /studio y lo devolvemos al salir.
-  useEffect(() => {
-    const prevTitle = document.title;
-    document.title = "Diseño de Interiores en Madrid | Gaos Studio";
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const prevDescription = metaDescription?.getAttribute("content") ?? null;
-    metaDescription?.setAttribute(
-      "content",
-      "Diseño de interiores de gama alta en Madrid: vivienda completa, cocinas y espacios de estar, del concepto a la visualización 3D. Presupuesto sin compromiso."
-    );
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const prevOgTitle = ogTitle?.getAttribute("content") ?? null;
-    ogTitle?.setAttribute("content", "Gaos Studio — Diseño de Interiores en Madrid");
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const prevOgDescription = ogDescription?.getAttribute("content") ?? null;
-    ogDescription?.setAttribute(
-      "content",
-      "Diseño de interiores de gama alta en Madrid: vivienda completa, cocinas y espacios de estar, del concepto a la visualización 3D. Presupuesto sin compromiso."
-    );
-
-    return () => {
-      document.title = prevTitle;
-      if (prevDescription !== null) metaDescription?.setAttribute("content", prevDescription);
-      if (prevOgTitle !== null) ogTitle?.setAttribute("content", prevOgTitle);
-      if (prevOgDescription !== null) ogDescription?.setAttribute("content", prevOgDescription);
-    };
   }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
